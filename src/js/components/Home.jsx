@@ -1,25 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import SecondsCounter from "./SecondsCounter.jsx";
 
-
-//create your first component
-
-const Home = () => {
-  const [seconds, setSeconds] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds(prev => prev + 1);
-    }, 1000);
-
-    return () => clearInterval(interval); 
-  }, []);
-
+const Home = (props) => {
   return (
-    <div className="container text-center mt-5">
-      <SecondsCounter patatas={seconds} />
+    <div className="container d-flex justify-content-center mt-5">
+      <div className="card shadow-lg p-4 rounded" style={{ maxWidth: '400px' }}>
+        <SecondsCounter bananaCounter={props.bananaCounter} />
+      </div>
     </div>
   );
 };
 
 export default Home;
+

@@ -11,8 +11,19 @@ import '../styles/index.css'
 // components
 import Home from './components/Home';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home/>
-  </React.StrictMode>,
-)
+
+let seconds = 0;
+
+const rerender = () => {
+  ReactDOM.createRoot(document.getElementById('root')).render(
+    <React.StrictMode>
+      <Home bananaCounter={seconds} />
+    </React.StrictMode>
+  );
+};
+
+setInterval(() => {
+  seconds++;
+  console.log(seconds);
+  rerender();
+}, 1000);
